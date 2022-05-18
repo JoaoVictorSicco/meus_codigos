@@ -92,14 +92,21 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  //if(HAL_GPIO_ReadPin(C1)){HAL_GPIO_TogglePin(LED_RED);HAL_Delay(100);HAL_GPIO_TogglePin(LED_RED);}
 	  // Verifica se o botão foi pressionado
-	  while(!HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_7))
-	  {
-		  // O led acende enquanto o botão está pressionado
-		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, SET);
-		  HAL_Delay(10);
-		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, RESET);
+//	  while(!HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_7))
+//	  {
+//		  // O led acende enquanto o botão está pressionado
+//		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, SET);
+//		  HAL_Delay(10);
+//		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, RESET);
+//	  }
+	  if(!HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_7))
+	  {	  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_10);
+	  	  HAL_Delay(100);
+	  	  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_10);
 	  }
+
 
     /* USER CODE END WHILE */
 
